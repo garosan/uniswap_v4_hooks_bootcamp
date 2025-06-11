@@ -26,8 +26,8 @@
 
 ## Retos
 
--
+- Echar un vistazo a los docs y blog de Uniswap, comentar algo que encuentres interesante.
+- Tener cuenta en Github y entender cómo clonar un repo, pushear código a un repo tuyo, etc.
+- Repasar [esta guía](https://github.com/Cyfrin/Updraft/tree/main/courses/chainlink-fundamentals/2-smart-contract-and-solidity-fundamentals) o similar si no estás muy familiarizad@ con Solidity
 - Configurar entorno de desarrollo
-  - Tener cuenta en Github y entender cómo clonar un repo, pushear código a un repo tuyo, etc.
-  - Repasar [esta guía](https://github.com/Cyfrin/Updraft/tree/main/courses/chainlink-fundamentals/2-smart-contract-and-solidity-fundamentals) o similar si no estás muy familiarizad@ con Solidity
   - Instalar Foundry

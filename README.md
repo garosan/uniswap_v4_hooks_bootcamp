@@ -4,7 +4,7 @@
 
 - [Sesión 01 – Bienvenida y Visión General](./session_01.md)
 - [Sesión 02 - Historia y Evolución de Uniswap (v1 -> v4)](./session_02.md)
-- [Sesión 03 - Arquitectura de v4: `PoolManager`, `StateLibrary` y Hooks Básicos](./session_03.md)
+- [Sesión 03 - Entendiendo la Arquitectura del contrato `PoolManager`](./session_03.md)
 - [Sesión 04 – Matemáticas de Uniswap: Ticks, Q64.96 y Precios](./session_04.md)
 - [Sesión 05 – Dynamic Fees I: Hook Basado en gas price](./session_05.md)
 - [Sesión 06 – Dynamic Fees II: Nezlobin Directional Fee & Impermanent Loss](./session_06.md)
