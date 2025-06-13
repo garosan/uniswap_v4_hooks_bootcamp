@@ -26,3 +26,6 @@
 - [UniswapLabs - A Deep Dive into v4 with Dan Robinson](https://youtu.be/Dk6oHhYjN_E)
 - [Atrium Academy - The History of Uniswap // An Introduction to Uniswap v4](https://youtu.be/OYnhe01d84s)
 - [The Defiant - Uniswap V4 Deep Dive with Head of Protocols Sara Reynolds](https://www.youtube.com/watch?v=6e8n_GedrMY)
+- [Rafa Canseco - Videos de Uniswap V4 en español](https://www.youtube.com/@rafacanseco/videos)
+
+Nota: Todo el material visual ha sido tomado de [Atrium Academy](https://atrium.academy/uniswap).
