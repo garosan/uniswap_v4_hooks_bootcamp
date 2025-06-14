@@ -11,6 +11,10 @@
 
 ### Uniswap v1
 
+Uniswap v1 en un diagram:
+
+![Imagen tomada de Atrium Academy](./assets/02_uniswap_v1.png)
+
 - Factory contract, cualquiera puede desplegar una pool para un par ETH <-> ERC-20 token
 - Primera implementación de un AMM, más especificamente un CPMM: La ecuación que todos conocemos y amamos: `xy = k`
 - Problemas con v1:
@@ -18,12 +22,18 @@
 
 ### Uniswap v2
 
+Innovaciones principales en v2:
+
+![Imagen tomada de Atrium Academy](./assets/02_uniswap_v2.png)
+
 - Lanzado a mediados de 2020
 - Un hit 🎯, el protocolo más forkeado de la historia
-- 3 mejores importantes:
+- 3 innovaciones importantes:
   - Ahora puedes hacer swaps ERC-20 <-> ERC-20 usando un contrato router
   - TWAP oracle, no muy usado ahora, pero en su momento, gran innovación
   - Introdujo Flash Swaps (como Flash Loans, pero para swaps)
+
+Nota: ¿Qué es Time-Weighted Average Price Oracle (TWAP)?
 
 Nuevos problemas:
 
@@ -31,6 +41,10 @@ Nuevos problemas:
 - Provoca ineficiencias de precio ya que muchos tokens realmente no van a ser tradeados en los extremos de la curva
 
 ### Uniswap v3
+
+Diagrama de v3:
+
+![Imagen tomada de Atrium Academy](./assets/02_uniswap_v3.png)
 
 - Lanzado en 2021
 - La gran innovación 🔥: Liquidez Concentrada
@@ -74,7 +88,11 @@ Ahora sí, entremos a la arquitectura de v4, pero 1ero, qué problemas de v3 est
 
 Uniswap v3 —como ya sabemos— es un AMM de propósito general que introdujo el concepto de liquidez concentrada. En la imagen de arriba se puede ver cómo la liquidez se distribuye en diferentes rangos de precio para un pool ETH <> USDC. Gracias a la liquidez concentrada se volvió posible crear mercados altamente eficientes en capital, ya que los LPs no estaban forzados a proveer liquidez a lo largo de todo el rango de precios. Además, para tokens poco volátiles, la mayor parte de la liquidez se concentraba cerca de los precios comunes de intercambio.
 
-Sin embargo, al igual que en Uniswap v2, v3 requería que cada pool fuera su propio contrato inteligente, desplegado a través del contrato UniswapV3Factory. Esto hacía que acciones como crear un nuevo pool o ejecutar un swap con múltiples hops fueran operaciones costosas.
+Sin embargo, al igual que en Uniswap v2, v3 requería que cada pool fuera su propio contrato inteligente, desplegado a través del contrato `UniswapV3Factory`. Esto hacía que acciones como crear un nuevo pool o ejecutar un swap con múltiples hops fueran operaciones costosas.
+
+Cada pool es un contrato en v3:
+
+![Imagen tomada de Atrium Academy](./assets/02_v3_architecture.png)
 
 Pseudocódigo de cómo se crea una pool en v3:
 
@@ -95,6 +113,8 @@ contract UniswapV3Factory {
 
 - Uniswap v4 👉: Diseño Singleton
 - Ahora un solo contrato (`PoolManager`) administra todas las pools, en lugar de que cada pool sea un contrato
+
+![Imagen tomada de Atrium Academy](./assets/02_v4_pool_manager.png)
 
 ➡️ Diseño v4
 

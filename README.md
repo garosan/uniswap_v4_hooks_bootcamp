@@ -28,4 +28,11 @@
 - [The Defiant - Uniswap V4 Deep Dive with Head of Protocols Sara Reynolds](https://www.youtube.com/watch?v=6e8n_GedrMY)
 - [Rafa Canseco - Videos de Uniswap V4 en español](https://www.youtube.com/@rafacanseco/videos)
 
+## Artículos y Escritos
+
+- [Vitalik Buterin - On Path Independece (el artículo que inspiró a Hayden)](https://vitalik.eth.limo/general/2017/06/22/marketmakers.html)
+- [Uniswap v4 Whitepaper](https://app.uniswap.org/whitepaper-v4.pdf)
+
 Nota: Todo el material visual ha sido tomado de [Atrium Academy](https://atrium.academy/uniswap).
+
+## Recursos y Aportes de la Comunidad

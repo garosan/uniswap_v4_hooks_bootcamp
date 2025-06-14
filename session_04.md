@@ -74,11 +74,37 @@ Conclusión #2 👉: El espacio entre 2 ticks adyacentes _tick spacing_, es el m
 
 ### Ticks y Precios
 
-Mira esta ecuación, es importante:
+Mira esta ecuación, determina el precio relativo de un token en un tick específico:
 
 ![Imagen tomada de Atrium Academy](./assets/04_p_de_i_ecuacion.png)
 
+¿Cómo? Un ejemplo:
+
+Asumamos un pool con tokens `A` y `B`.
+
+Tick 0: 1 Token A = 1 Token B
+
+Tick 10: 1 Token A = 1.001 Token B
+
+Tick -10: 1 Token A = 0.999 Token B
+
+¿Por qué 1.0001? Porque implica que cada tick representa un cambio del 0.01% (1 basis point) en el precio relativo.
+
+Hagamos un recap rápido de lo que hemos cubierto:
+
+1. Los _ticks_ son puntos discretos en una curva de precio finita, cada tick representa un precio relativo en el que puede ocurrir un trade.
+2. _Tick spacing_ es el espacio entre 2 ticks adyacentes, y el cambio de precio relativo más pequeño que puede haber al tradear.
+3. ¿Por qué usamos 1.0001? Porque implica que cada tick representa un cambio del 0.01% (1 punto base) en el precio relativo. Esto facilita el análisis financiero.
+
+Finalmente, como la curva es finita, podemos tener en el código valores como `MIN_TICK` y `MAX_TICK`. Uniswap v4 guarda todos estos valores en un tipo de dato `int24` que tiene un rango de `[-8,388,608, 8,388,607]`, pero esto es muy grande para nuestras necesidades. **El rango real que pueden tener los ticks en Uniswap v4 es `[-887,272, 887,272]`.**
+
 ### Necesitamos más que ticks
+
+Para ciertas operaciones, como calcular cuánto Token Y necesitas para aportar liquidez dado un rango de precios y una cantidad de Token X, necesitamos fórmulas adicionales. Por ejemplo:
+
+Supongamos que tienes 2 ETH y quieres aportar liquidez en un pool ETH/USDC en el rango de 1500 a 2500 USDC por ETH. Necesitas calcular cuántos USDC se requieren para balancear la posición.
+
+Estas fórmulas implican usar raíces cuadradas de precios (√P, √Pₐ, √P_b), y como Solidity no maneja decimales bien, usamos representaciones con enteros de alta precisión: Q64.96 notation.
 
 ## Q64.96
 
