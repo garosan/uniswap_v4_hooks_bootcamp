@@ -33,7 +33,7 @@ Innovaciones principales en v2:
   - TWAP oracle, no muy usado ahora, pero en su momento, gran innovación
   - Introdujo Flash Swaps (como Flash Loans, pero para swaps)
 
-Nota: ¿Qué es Time-Weighted Average Price Oracle (TWAP)?
+Nota: **¿Qué es Time-Weighted Average Price Oracle (TWAP)?** Es un oráculo on-chain que calcula el precio medio de un activo promediando su valor a lo largo de un intervalo de tiempo. Hace que el precio sea más difícil de manipular.
 
 Nuevos problemas:
 
@@ -157,6 +157,8 @@ Por ejemplo, en v3 teníamos funciones como slot0() para consultar datos del est
 
 ### Flash Accounting Y Locking
 
+![Imagen tomada de Atrium Academy](./assets/02_flash_accounting.png)
+
 ➡️ Flash Accounting
 
 En versiones anteriores, cada vez que se hacía un swap (incluso en un multi-hop), los tokens se tenían que transferir dentro y fuera de cada contrato individual, lo cual era costoso en gas.
@@ -190,6 +192,8 @@ El flujo es:
 - Si no hay pendientes, el PoolManager se bloquea de nuevo.
 
 Esto permite hacer múltiples acciones dentro de una sola transacción sin errores contables.
+
+![Imagen tomada de Atrium Academy](./assets/02_swap_flow_across_contracts.png)
 
 ➡️ Transient Storage
 
