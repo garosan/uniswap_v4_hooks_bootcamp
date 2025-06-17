@@ -193,7 +193,7 @@ El flujo es:
 
 Esto permite hacer múltiples acciones dentro de una sola transacción sin errores contables.
 
-![Imagen tomada de Atrium Academy](./assets/02_swap_flow_across_contracts.png)
+![Imagen tomada de Atrium Academy](./assets/02_v4_swap_flow_across_contracts_2.png)
 
 ➡️ Transient Storage
 
