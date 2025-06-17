@@ -227,19 +227,66 @@ Fun Fact 🤓☝️: Uniswap v4 se retrasó intencionalmente esperando a que EIP
 
 ### ERC-6909 Claims
 
-v4 también incorpora el estándar [**ERC-6909**](https://eips.ethereum.org/EIPS/eip-6909), un contrato multitoken más simple que ERC-1155, para representar _claim tokens_.
+Nota: Este tema no es super relevante si haces pocos swaps, solo si haces muchas operaciones diarias, corres un bot, etc.
 
-Esto permite que traders frecuentes dejen sus fondos en el `PoolManager`, y a cambio reciban un token que representa su reclamo sobre esos fondos. En lugar de mover tokens reales, el PoolManager puede **quemar y acuñar claim tokens** internamente, lo que ahorra gas ya que no se hacen llamadas a contratos externos como los de USDC.
+v4 también incorpora el estándar [**ERC-6909**](https://eips.ethereum.org/EIPS/eip-6909), un contrato multitoken más simple que ERC-1155, para representar _claim tokens_. Otra vez, en un solo contrato, puedes manejar multiples tokens.
+
+Esto permite que traders frecuentes dejen sus fondos en el `PoolManager` (que es un contrato ERC-6909), y a cambio reciban un token que representa su reclamo sobre esos fondos. En lugar de mover tokens reales, el PoolManager puede **quemar y acuñar claim tokens** internamente, lo que ahorra gas ya que no se hacen llamadas a contratos externos como los de USDC.
+
+Por ejemplo: Cuando vas a vender ETH y comprar $1000 USDC en Uniswap normalmente pones ese USDC en tu cartera, mientras que en un CEX puedes dejarlo ahi para hacer otras operaciones y retirarlo a tu cartera cuando tú quieras.
 
 Esta eficiencia es clave para permitir modelos de **comisiones dinámicas**, ya que el costo de operar se reduce lo suficiente como para permitir mayor competitividad.
+
+Código de cómo se implementa ERC-6909:
+
+![Imagen tomada de Atrium Academy](./assets/02_erc_6909_code01.png)
+
+![Imagen tomada de Atrium Academy](./assets/02_erc_6909_code02.png)
 
 ## v4 Hooks
 
 ### Introducción a los Hooks
 
+Ahora sí, a lo que vinimos...¿qué es un hook?
+
+![Imagen tomada de Atrium Academy](./assets/02_captain_hook.jpg)
+
+- Fun Fact 🤓☝️: OpenZeppelin ya había implementado hooks pero los quitaron en la versión 5 porque no eran muy usados y no eran gas-efficient.
+
+### Todos los hooks!!
+
+- beforeInitialize
+- afterInitialize
+
+- beforeAddLiquidity
+- afterAddLiquidity
+- beforeRemoveLiquidity
+- afterRemoveLiquidity
+
+- beforeSwap
+- afterSwap
+
+- beforeDonate
+- afterDonate
+
+- beforeSwapReturnDelta
+- afterSwapReturnDelta
+- afterAddLiquidityReturnDelta
+- afterRemoveLiquidityReturnDelta
+
+Puedes implementar cualquier combinación de estos hooks de arriba, uno solo, cinco o todos, los que quieras y hagan sentido para lo que estás construyendo.
+
+Los últimos 4 son hooks más avanzados que vamos a ver después, en una línea, son como beforeSwap y afterSwap pero con privilegios adicionales.
+
 ### Bitmap de una address de un hook
 
+Como hook developers, es nuestra responsabilidad hacer address mining para encontrar una address correcta que represente los hooks que queremos implementar.
+
 ### Flujo de un Swap
+
+Así se ve un swap con todo lo que hemos aprendido hoy:
+
+![Imagen tomada de Atrium Academy](./assets/02_v4_swap_flow_across_contracts_2.png)
 
 ### Flujo para modificar una Posición de Liquidez
 
